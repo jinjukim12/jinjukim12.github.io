@@ -3,73 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Homework Homepage</title>
+    <title>My Homepage</title>
     <style>
         body {
-            font-family: 'Pretendard', sans-serif;
-            background-color: #f4f7f6;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            background-color: #ffffff;
+            font-family: sans-serif;
         }
-        .container {
-            background-color: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        .content {
             text-align: center;
-            max-width: 400px;
-            width: 90%;
         }
         .profile-img {
-            width: 200px;
+            width: 250px; /* 사진 크기 조절 가능 */
             height: auto;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 1.5rem;
-            color: #333;
-            margin-bottom: 10px;
+            border-radius: 5px;
+            margin-bottom: 30px;
         }
         .promise-text {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            font-weight: bold;
-            background-color: #e8f4fd;
-            padding: 15px;
-            border-left: 5px solid #3498db;
-            margin-top: 20px;
-            line-height: 1.4;
-        }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #888;
+            font-size: 1.2rem;
+            color: #000000;
+            font-weight: 500;
+            margin: 0;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <img src="profile.jpg" alt="내 사진" class="profile-img">
+<div class="content">
+    <img src="profile.jpg" alt="Profile Image" class="profile-img">
     
-    <h1>안녕하세요!</h1>
-    
-    <div class="promise-text">
-        "I keep the promises between Prof. and I"
-    </div>
-
-    <p style="margin-top: 20px; color: #666;">
-        금오공과대학교 과제 홈페이지
+    <p class="promise-text">
+        "I keep the promise between Prof. and I"
     </p>
-
-    <div class="footer">
-        Recommended Address: https://kitst.kumoh.ac.kr/~sURL/scm
-    </div>
 </div>
 
 </body>
