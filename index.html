@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Research Homepage</title>
+    <title>Research Portfolio</title>
     <style>
         body {
             display: flex;
@@ -30,24 +29,37 @@
             font-size: 1.2rem;
             color: #000000;
             font-weight: 500;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
-        .research-section {
+        hr {
+            width: 100%;
+            border: 0;
+            border-top: 1px solid #eeeeee;
+            margin: 40px 0;
+        }
+        .section {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2열로 배치 */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-top: 30px;
         }
-        .research-img {
+        .full-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        img {
             width: 100%;
             height: auto;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            border-radius: 5px;
+        }
+        .large-img {
+            max-width: 100%;
         }
         @media (max-width: 600px) {
-            .research-section {
-                grid-template-columns: 1fr; /* 모바일에서는 1열로 */
+            .section {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -58,13 +70,20 @@
     <img src="profile.jpg" alt="Profile" class="profile-img">
     <p class="promise-text">"I keep the promise between Prof. and I"</p>
 
-    <hr style="width: 100%; border: 0.5px solid #eee; margin-bottom: 40px;">
+    <hr>
 
-    <div class="research-section">
-        <img src="MOP.png" alt="Optimization 1" class="research-img">
-        <img src="NLP_prompt.png" alt="Optimization 2" class="research-img">
-        <img src="NLP_result.png" alt="Optimization 3" class="research-img">
-        <img src="nlpgrpah.png" alt="Optimization 4" class="research-img">
+    <div class="section">
+        <img src="MOP.png" alt="MOP">
+        <img src="NLP_prompt.png" alt="NLP Prompt">
+        <img src="NLP_result.png" alt="NLP Result">
+        <img src="nlpgrpah.png" alt="Graph">
+    </div>
+
+    <hr>
+
+    <div class="full-section">
+        <img src="gemini_api_key.jpg" alt="API Key" class="large-img">
+        <img src="result.png" alt="Result" class="large-img">
     </div>
 </div>
 
