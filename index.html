@@ -16,7 +16,7 @@
         }
         .container {
             text-align: center;
-            max-width: 800px;
+            max-width: 900px;
             width: 90%;
         }
         .profile-img {
@@ -35,9 +35,9 @@
             width: 100%;
             border: 0;
             border-top: 1px solid #eeeeee;
-            margin: 40px 0;
+            margin: 50px 0;
         }
-        .section {
+        .grid-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
@@ -45,20 +45,21 @@
         .full-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             align-items: center;
         }
         img {
             width: 100%;
             height: auto;
             border: 1px solid #f0f0f0;
-            border-radius: 5px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
         .large-img {
             max-width: 100%;
         }
-        @media (max-width: 600px) {
-            .section {
+        @media (max-width: 700px) {
+            .grid-section {
                 grid-template-columns: 1fr;
             }
         }
@@ -72,7 +73,16 @@
 
     <hr>
 
-    <div class="section">
+    <div class="grid-section">
+        <img src="topk_experiment.png" alt="Top-K">
+        <img src="topp_experiment.png" alt="Top-P">
+        <img src="cot_experiment.png" alt="CoT">
+        <img src="temperature_experiment.png" alt="Temperature">
+    </div>
+
+    <hr>
+
+    <div class="grid-section">
         <img src="MOP.png" alt="MOP">
         <img src="NLP_prompt.png" alt="NLP Prompt">
         <img src="NLP_result.png" alt="NLP Result">
@@ -83,7 +93,7 @@
 
     <div class="full-section">
         <img src="gemini_api_key.jpg" alt="API Key" class="large-img">
-        <img src="result.png" alt="Result" class="large-img">
+        <img src="result.jpg" alt="Result" class="large-img">
     </div>
 </div>
 
