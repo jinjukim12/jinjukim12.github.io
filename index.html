@@ -13,6 +13,7 @@
             margin: 0;
             background-color: #ffffff;
             font-family: sans-serif;
+            line-height: 1.6;
         }
         .container {
             text-align: center;
@@ -40,7 +41,19 @@
         .grid-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        .description-box {
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #333;
+            margin-top: -10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ddd;
         }
         .full-section {
             display: flex;
@@ -78,6 +91,12 @@
         <img src="topp_experiment.png" alt="Top-P">
         <img src="cot_experiment.png" alt="CoT">
         <img src="temperature_experiment.png" alt="Temperature">
+    </div>
+    
+    <div class="description-box">
+        • <b>Temperature:</b> 값이 낮을수록 더 안정적이고 예측 가능한 문장이 생성되며, 높을수록 다양하고 창의적인 표현이 증가한다.<br>
+        • <b>Top-k:</b> 고려하는 후보 단어의 개수를 제한하는 방식으로, 값이 작을수록 보수적인 출력이 나오고 클수록 다양한 표현이 가능해진다.<br>
+        • <b>Top-p:</b> 누적 확률을 기준으로 후보를 선택하여, 값이 낮으면 일관성이 높고 값이 높으면 더 다양한 텍스트가 생성된다.
     </div>
 
     <hr>
