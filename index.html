@@ -32,21 +32,6 @@
             font-weight: 500;
             margin-bottom: 20px;
         }
-        /* PPT 다운로드 버튼 스타일 */
-        .download-btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            margin: 10px 0 30px 0;
-            transition: background-color 0.2s;
-        }
-        .download-btn:hover {
-            background-color: #0056b3;
-        }
         hr {
             width: 100%;
             border: 0;
@@ -58,6 +43,23 @@
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-bottom: 20px;
+        }
+        /* PPT 연구 내용 스타일 */
+        .ppt-section {
+            text-align: left;
+            background-color: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0 40px 0;
+            border: 1px solid #eee;
+        }
+        .ppt-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
         }
         .description-box {
             text-align: left;
@@ -99,10 +101,6 @@
     <img src="profile.jpg" alt="Profile" class="profile-img">
     <p class="promise-text">"I keep the promise between Prof. and I"</p>
 
-    <a href="LLM_homework.pptx" download class="download-btn">
-        📄 과제 ppt
-    </a>
-
     <hr>
 
     <div class="grid-section">
@@ -116,6 +114,16 @@
         • <b>Temperature:</b> 값이 낮을수록 더 안정적이고 예측 가능한 문장이 생성되며, 높을수록 다양하고 창의적인 표현이 증가한다.<br>
         • <b>Top-k:</b> 고려하는 후보 단어의 개수를 제한하는 방식으로, 값이 작을수록 보수적인 출력이 나오고 클수록 다양한 표현이 가능해진다.<br>
         • <b>Top-p:</b> 누적 확률을 기준으로 후보를 선택하여, 값이 낮으면 일관성이 높고 값이 높으면 더 다양한 텍스트가 생성된다.
+    </div>
+
+    <div class="ppt-section">
+        <div class="ppt-title">Research: LLM-Based Drug Review Analysis</div>
+        <p>기존 감성 분석의 한계를 극복하기 위해 LLM 기반의 피처 엔지니어링과 물리 법칙 기반 신경망(PINN)을 결합한 추천 시스템 연구를 수행하였습니다.</p>
+        <ul style="padding-left: 20px; font-size: 0.95rem;">
+            <li><b>지능형 추천:</b> 환자 리뷰 맥락을 분석하여 최적의 약물 제안</li>
+            <li><b>부작용 감지:</b> 비정형 텍스트 내 미묘한 부작용 언급 자동 식별</li>
+            <li><b>성능 개선:</b> 데이터 희소성 문제를 해결하고 결과의 해석 가능성 확보</li>
+        </ul>
     </div>
 
     <hr>
