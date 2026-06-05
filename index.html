@@ -33,16 +33,36 @@
             margin-bottom: 20px;
         }
         
+        /* 슬라이드 박스 스타일 */
+        .slide-box {
+            text-align: left;
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eeeeee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .slide-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #007bff;
+            display: inline-block;
+        }
+
         /* PDF 뷰어 스타일 */
         .pdf-viewer {
             width: 100%;
             height: 600px;
             border: 1px solid #ddd;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
-        /* 버튼 스타일 */
+        /* 버튼 컨테이너 스타일 */
         .btn-container {
             display: flex;
             flex-direction: column;
@@ -52,24 +72,34 @@
         }
         .download-btn {
             display: inline-block;
-            width: 280px;
+            width: 320px; /* 파일명이 길어져서 버튼 너비를 살짝 늘렸어 */
             padding: 12px 0;
-            background-color: #007bff;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             transition: background-color 0.2s;
-            font-size: 0.9rem;
-        }
-        .download-btn:hover {
-            background-color: #0056b3;
+            font-size: 0.95rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .pdf-btn {
-            background-color: #28a745; /* PDF 버튼은 초록색으로 구분 */
+            background-color: #28a745; /* 초록색 */
         }
         .pdf-btn:hover {
             background-color: #218838;
+        }
+        .pptx-btn {
+            background-color: #007bff; /* 파란색 */
+        }
+        .pptx-btn:hover {
+            background-color: #0056b3;
+        }
+        .ipynb-btn {
+            background-color: #e67e22; /* 주황색 (주피터 노트북 시그니처 컬러) */
+        }
+        .ipynb-btn:hover {
+            background-color: #d35400;
         }
 
         hr {
@@ -118,14 +148,36 @@
     <img src="profile.jpg" alt="Profile" class="profile-img">
     <p class="promise-text">"I keep the promise between Prof. and I"</p>
 
+    <hr>
+
+    <div class="slide-box">
+        <div class="slide-title">Smart Logistics Delay Control Agent Framework</div>
+        <p style="font-weight: 500; color: #333; margin-bottom: 15px;">
+            기존의 배송 지연 사후 조치 방식을 넘어, 1개의 LLM(Gemini)과 2개의 SLM(MiniLM + TinyLlama LoRA) 및 LangGraph 오케스트레이션을 결합한 선제적 물류 제어 시스템입니다.
+        </p>
+        <ul style="padding-left: 20px; margin-bottom: 20px; color: #555;">
+            <li><b>기존 한계 대응:</b> 단순 예측 모델의 의사결정 부족 및 LLM 단독 사용 시의 낮은 신뢰성 문제 해결</li>
+            <li><b>핵심 기능:</b> 배송 지연 위험 예측을 수행하는 동시에, 예측치를 바탕으로 최적의 제어 행동 추천</li>
+            <li><b>의사결정 지원:</b> 고위험 주문을 실시간으로 식별하여 물류 담당자의 실질적 행동 및 비용 기반 최적화 프로세스 연결</li>
+        </ul>
+        
+        <div style="text-align: center; margin-top: 25px;">
+            <img src="logistics_agent_framework.png" alt="Smart Logistics Framework Diagram" style="max-width: 100%; border: 1px solid #ddd;">
+            <p style="font-size: 0.85rem; color: #777; margin-top: 8px;">[Figure] 1 LLM + 2 SLMs + LangGraph Orchestration Architecture</p>
+        </div>
+    </div>
+
     <iframe src="LoRA.pdf" class="pdf-viewer"></iframe>
     
     <div class="btn-container">
         <a href="LoRA.pdf" download class="download-btn pdf-btn">
-             LoRA
+            📄 LoRA 논문 PDF 다운로드
         </a>
-        <a href="LLM_homework.pptx" download class="download-btn">
-             과제 PPT 다운로드
+        <a href="Final_homework.pptx" download class="download-btn pptx-btn">
+            📊 스마트 물류 PPT 다운로드
+        </a>
+        <a href="Smart_Logistics_Gemini_LoRA_Agent.ipynb" download class="download-btn ipynb-btn">
+            💻 에이전트 실습 실행 코드 (.ipynb) 다운로드
         </a>
     </div>
 
@@ -155,9 +207,9 @@
 
     <hr>
 
-    <div class="full-section">
-        <img src="gemini_api_key.jpg" alt="API Key" class="large-img">
-        <img src="result.jpg" alt="Result" class="large-img">
+    <div class="full-section" style="display:flex; flex-direction:column; gap:25px; align-items:center;">
+        <img src="gemini_api_key.jpg" alt="API Key" style="max-width:100%; border:1px solid #f0f0f0; border-radius:8px;">
+        <img src="result.jpg" alt="Result" style="max-width:100%; border:1px solid #f0f0f0; border-radius:8px;">
     </div>
 </div>
 
