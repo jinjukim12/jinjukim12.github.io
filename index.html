@@ -33,33 +33,22 @@
             margin-bottom: 20px;
         }
         
-        /* 슬라이드 박스 스타일 */
-        .slide-box {
+        /* 통합 문서 뷰어 스타일 */
+        .viewer-title {
             text-align: left;
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            margin-bottom: 40px;
-            margin-top: 20px;
-        }
-        .slide-title {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            color: #007bff;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #007bff;
-            display: inline-block;
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 10px;
         }
-
-        /* PDF 뷰어 스타일 */
-        .pdf-viewer {
+        .doc-viewer {
             width: 100%;
             height: 600px;
             border: 1px solid #ddd;
             border-radius: 8px;
             margin-bottom: 20px;
+            background-color: #fafafa;
         }
 
         /* 버튼 컨테이너 스타일 */
@@ -69,10 +58,11 @@
             align-items: center;
             gap: 12px;
             margin-bottom: 30px;
+            margin-top: 20px;
         }
         .download-btn {
             display: inline-block;
-            width: 320px; /* 파일명이 길어져서 버튼 너비를 살짝 늘렸어 */
+            width: 340px;
             padding: 12px 0;
             color: white;
             text-decoration: none;
@@ -83,24 +73,12 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .pdf-btn {
-            background-color: #28a745; /* 초록색 */
-        }
-        .pdf-btn:hover {
-            background-color: #218838;
-        }
-        .pptx-btn {
-            background-color: #007bff; /* 파란색 */
-        }
-        .pptx-btn:hover {
-            background-color: #0056b3;
-        }
-        .ipynb-btn {
-            background-color: #e67e22; /* 주황색 (주피터 노트북 시그니처 컬러) */
-        }
-        .ipynb-btn:hover {
-            background-color: #d35400;
-        }
+        .pdf-btn { background-color: #28a745; }
+        .pdf-btn:hover { background-color: #218838; }
+        .pptx-btn { background-color: #007bff; }
+        .pptx-btn:hover { background-color: #0056b3; }
+        .ipynb-btn { background-color: #e67e22; }
+        .ipynb-btn:hover { background-color: #d35400; }
 
         hr {
             width: 100%;
@@ -132,15 +110,33 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
+        .large-img {
+            max-width: 100%;
+        }
         @media (max-width: 700px) {
             .grid-section {
                 grid-template-columns: 1fr;
             }
-            .pdf-viewer {
+            .doc-viewer {
                 height: 400px;
             }
         }
     </style>
+    <script>
+        // GitHub Pages 환경에서 실시간 뷰어 주소를 자동으로 맵핑해주는 스크립트
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentUrl = window.location.href.split('?')[0].split('#')[0];
+            const baseUrl = currentUrl.endsWith('index.html') ? currentUrl.replace('index.html', '') : currentUrl;
+            
+            // 파일 절대 경로 생성
+            const pptxUrl = baseUrl + 'Final_homework.pptx';
+            const ipynbUrl = baseUrl + 'Smart_Logistics_Gemini_LoRA_Agent.ipynb';
+            
+            // 구글 뷰어 주소 바인딩
+            document.getElementById('pptx-viewer').src = `https://docs.google.com/gview?url=${encodeURIComponent(pptxUrl)}&embedded=true`;
+            document.getElementById('ipynb-viewer').src = `https://docs.google.com/gview?url=${encodeURIComponent(ipynbUrl)}&embedded=true`;
+        });
+    </script>
 </head>
 <body>
 
@@ -150,34 +146,24 @@
 
     <hr>
 
-    <div class="slide-box">
-        <div class="slide-title">Smart Logistics Delay Control Agent Framework</div>
-        <p style="font-weight: 500; color: #333; margin-bottom: 15px;">
-            기존의 배송 지연 사후 조치 방식을 넘어, 1개의 LLM(Gemini)과 2개의 SLM(MiniLM + TinyLlama LoRA) 및 LangGraph 오케스트레이션을 결합한 선제적 물류 제어 시스템입니다.
-        </p>
-        <ul style="padding-left: 20px; margin-bottom: 20px; color: #555;">
-            <li><b>기존 한계 대응:</b> 단순 예측 모델의 의사결정 부족 및 LLM 단독 사용 시의 낮은 신뢰성 문제 해결</li>
-            <li><b>핵심 기능:</b> 배송 지연 위험 예측을 수행하는 동시에, 예측치를 바탕으로 최적의 제어 행동 추천</li>
-            <li><b>의사결정 지원:</b> 고위험 주문을 실시간으로 식별하여 물류 담당자의 실질적 행동 및 비용 기반 최적화 프로세스 연결</li>
-        </ul>
-        
-        <div style="text-align: center; margin-top: 25px;">
-            <img src="logistics_agent_framework.png" alt="Smart Logistics Framework Diagram" style="max-width: 100%; border: 1px solid #ddd;">
-            <p style="font-size: 0.85rem; color: #777; margin-top: 8px;">[Figure] 1 LLM + 2 SLMs + LangGraph Orchestration Architecture</p>
-        </div>
-    </div>
+    <div class="viewer-title">스마트 물류 프레임워크 PPT 미리보기</div>
+    <iframe id="pptx-viewer" class="doc-viewer" frameborder="0"></iframe>
 
-    <iframe src="LoRA.pdf" class="pdf-viewer"></iframe>
+    <div class="viewer-title"> 에이전트 실습 주피터 노트북(.ipynb) 코드 미리보기</div>
+    <iframe id="ipynb-viewer" class="doc-viewer" frameborder="0"></iframe>
+
+    <div class="viewer-title">LoRA 논문 PDF 미리보기</div>
+    <iframe src="LoRA.pdf" class="doc-viewer" frameborder="0"></iframe>
     
     <div class="btn-container">
-        <a href="LoRA.pdf" download class="download-btn pdf-btn">
-            📄 LoRA 논문 PDF 다운로드
-        </a>
         <a href="Final_homework.pptx" download class="download-btn pptx-btn">
-            📊 스마트 물류 PPT 다운로드
+             Finalhomework PPT 다운로드
         </a>
         <a href="Smart_Logistics_Gemini_LoRA_Agent.ipynb" download class="download-btn ipynb-btn">
-            💻 에이전트 실습 실행 코드 (.ipynb) 다운로드
+             에이전트 실습 실행 코드 (.ipynb) 다운로드
+        </a>
+        <a href="LoRA.pdf" download class="download-btn pdf-btn">
+             LoRA 논문 PDF 다운로드
         </a>
     </div>
 
@@ -208,8 +194,8 @@
     <hr>
 
     <div class="full-section" style="display:flex; flex-direction:column; gap:25px; align-items:center;">
-        <img src="gemini_api_key.jpg" alt="API Key" style="max-width:100%; border:1px solid #f0f0f0; border-radius:8px;">
-        <img src="result.jpg" alt="Result" style="max-width:100%; border:1px solid #f0f0f0; border-radius:8px;">
+        <img src="gemini_api_key.jpg" alt="API Key" class="large-img">
+        <img src="result.jpg" alt="Result" class="large-img">
     </div>
 </div>
 
