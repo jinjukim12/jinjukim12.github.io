@@ -33,36 +33,35 @@
             margin-bottom: 20px;
         }
         
-        /* 통합 문서 뷰어 스타일 */
-        .viewer-title {
-            text-align: left;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #333;
-            margin-top: 30px;
-            margin-bottom: 10px;
+        /* 다운로드 버튼 컨테이너 스타일 (내 사진 바로 밑 배치용) */
+        .recent-btn-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
         }
-        .doc-viewer {
+        
+        /* PDF 뷰어 스타일 */
+        .pdf-viewer {
             width: 100%;
             height: 600px;
             border: 1px solid #ddd;
             border-radius: 8px;
             margin-bottom: 20px;
-            background-color: #fafafa;
         }
 
-        /* 버튼 컨테이너 스타일 */
+        /* 버튼 컨테이너 스타일 (세로 나열) */
         .btn-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 12px;
             margin-bottom: 30px;
-            margin-top: 20px;
         }
         .download-btn {
             display: inline-block;
-            width: 340px;
+            width: 320px; /* 파일명이 길어 깔끔하게 너비를 넓혔습니다 */
             padding: 12px 0;
             color: white;
             text-decoration: none;
@@ -73,12 +72,24 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-        .pdf-btn { background-color: #28a745; }
-        .pdf-btn:hover { background-color: #218838; }
-        .pptx-btn { background-color: #007bff; }
-        .pptx-btn:hover { background-color: #0056b3; }
-        .ipynb-btn { background-color: #e67e22; }
-        .ipynb-btn:hover { background-color: #d35400; }
+        .pdf-btn {
+            background-color: #28a745; /* LoRA PDF 버튼: 초록색 */
+        }
+        .pdf-btn:hover {
+            background-color: #218838;
+        }
+        .pptx-btn {
+            background-color: #007bff; /* PPT 버튼: 파란색 */
+        }
+        .pptx-btn:hover {
+            background-color: #0056b3;
+        }
+        .ipynb-btn {
+            background-color: #e67e22; /* 코드 파일 버튼: 주황색 */
+        }
+        .ipynb-btn:hover {
+            background-color: #d35400;
+        }
 
         hr {
             width: 100%;
@@ -110,33 +121,15 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-        .large-img {
-            max-width: 100%;
-        }
         @media (max-width: 700px) {
             .grid-section {
                 grid-template-columns: 1fr;
             }
-            .doc-viewer {
+            .pdf-viewer {
                 height: 400px;
             }
         }
     </style>
-    <script>
-        // GitHub Pages 환경에서 실시간 뷰어 주소를 자동으로 맵핑해주는 스크립트
-        window.addEventListener('DOMContentLoaded', () => {
-            const currentUrl = window.location.href.split('?')[0].split('#')[0];
-            const baseUrl = currentUrl.endsWith('index.html') ? currentUrl.replace('index.html', '') : currentUrl;
-            
-            // 파일 절대 경로 생성
-            const pptxUrl = baseUrl + 'Final_homework.pptx';
-            const ipynbUrl = baseUrl + 'Smart_Logistics_Gemini_LoRA_Agent.ipynb';
-            
-            // 구글 뷰어 주소 바인딩
-            document.getElementById('pptx-viewer').src = `https://docs.google.com/gview?url=${encodeURIComponent(pptxUrl)}&embedded=true`;
-            document.getElementById('ipynb-viewer').src = `https://docs.google.com/gview?url=${encodeURIComponent(ipynbUrl)}&embedded=true`;
-        });
-    </script>
 </head>
 <body>
 
@@ -144,26 +137,25 @@
     <img src="profile.jpg" alt="Profile" class="profile-img">
     <p class="promise-text">"I keep the promise between Prof. and I"</p>
 
-    <hr>
-
-    <div class="viewer-title">스마트 물류 프레임워크 PPT 미리보기</div>
-    <iframe id="pptx-viewer" class="doc-viewer" frameborder="0"></iframe>
-
-    <div class="viewer-title"> 에이전트 실습 주피터 노트북(.ipynb) 코드 미리보기</div>
-    <iframe id="ipynb-viewer" class="doc-viewer" frameborder="0"></iframe>
-
-    <div class="viewer-title">LoRA 논문 PDF 미리보기</div>
-    <iframe src="LoRA.pdf" class="doc-viewer" frameborder="0"></iframe>
-    
-    <div class="btn-container">
+    <div class="recent-btn-container">
         <a href="Final_homework.pptx" download class="download-btn pptx-btn">
-             Finalhomework PPT 다운로드
+             스마트 물류 Final PPT 다운로드
         </a>
         <a href="Smart_Logistics_Gemini_LoRA_Agent.ipynb" download class="download-btn ipynb-btn">
              에이전트 실습 실행 코드 (.ipynb) 다운로드
         </a>
+    </div>
+
+    <hr>
+
+    <iframe src="LoRA.pdf" class="pdf-viewer"></iframe>
+    
+    <div class="btn-container">
         <a href="LoRA.pdf" download class="download-btn pdf-btn">
-             LoRA 논문 PDF 다운로드
+            📄 LoRA 논문 PDF 다운로드
+        </a>
+        <a href="LLM_homework.pptx" download class="download-btn pptx-btn">
+            📊 과제 PPT 다운로드
         </a>
     </div>
 
@@ -194,8 +186,8 @@
     <hr>
 
     <div class="full-section" style="display:flex; flex-direction:column; gap:25px; align-items:center;">
-        <img src="gemini_api_key.jpg" alt="API Key" class="large-img">
-        <img src="result.jpg" alt="Result" class="large-img">
+        <img src="gemini_api_key.jpg" alt="API Key" style="max-width:100%; border:1px solid #f0f0f0; border-radius:8px;">
+        <img src="result.jpg" alt="Result" style="max-width:100%; border:1px solid #f0f0f0; border-radius:8px;">
     </div>
 </div>
 
